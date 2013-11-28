@@ -5,6 +5,18 @@ class Year
     @year = year
   end
 
+  def leap?
+    if simple_leap?
+      true
+    elsif complex_leap?
+      true
+    else
+      false
+    end
+  end
+
+  private
+
   def leap_candidate?
     year % 4 == 0
   end
@@ -13,14 +25,7 @@ class Year
     leap_candidate? && year % 100 != 0
   end
 
-  def leap?
-    if simple_leap? 
-      true
-    elsif
-      year % 4 == 0 && year % 100 == 0 && year % 400 == 0
-      true
-    else
-      false
-    end
+  def complex_leap?
+    leap_candidate? && year % 100 == 0 && year % 400 == 0
   end
 end
