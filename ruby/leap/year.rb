@@ -6,16 +6,8 @@ class Year
   end
 
   def leap?
-    if simple_leap?
-      true
-    elsif complex_leap?
-      true
-    else
-      false
-    end
+    leap_candidate? && simple_leap? || complex_leap?
   end
-
-  private
 
   def leap_candidate?
     year % 4 == 0
