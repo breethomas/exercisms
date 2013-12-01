@@ -9,6 +9,7 @@ class Year
     leap_candidate? && valid_century? || exceptional_century?
   end
 
+  private
   def leap_candidate?
     year % 4 == 0
   end
