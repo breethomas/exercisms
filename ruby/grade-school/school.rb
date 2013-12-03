@@ -6,16 +6,16 @@ class School
   end
 
   def add(name, grade)
-    @db[grade] << name
+    db[grade] << name
   end
 
   def grade(grade)
-    @db[grade]
+    db[grade]
   end
 
- # def sort
- #   #
- #   @db.keys.sort
- # end
+  def sort
+    key_sort = Hash[db.sort]
+    Hash[key_sort.map { |key,value| [key, value.sort]}]
+  end
 end
 
