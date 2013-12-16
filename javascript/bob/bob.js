@@ -14,7 +14,7 @@ Bob.prototype.hey = function(input) {
 };
 
 function isShouting(input) {
-  return (input.toUpperCase() === input && /[A-Z]/.test(input));
+  return (input.toUpperCase() === input && /[A-Z\xdc]/.test(input));
 }
 
 function isQuestioning(input) {

@@ -58,6 +58,11 @@ describe("Bob", function() {
     expect(result).toEqual('Woah, chill out!');
   });
 
+  it("shouting with only umlauts", function() {
+    var result = bob.hey("\xdc\xc4\xdc!");
+    expect(result).toEqual('Woah, chill out!');
+  });
+
   it("calmly speaking about umlauts", function() {
     var result = bob.hey("\xdcML\xe4\xdcTS!");
     expect(result).toEqual('Whatever.');
