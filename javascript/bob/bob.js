@@ -22,7 +22,7 @@ function isQuestioning(input) {
 }
 
 function isSilence(input) {
-  return (input.replace(/\s+/g, '')) === '';
+  return (input.trim() === "");
 }
 
 module.exports = Bob;
