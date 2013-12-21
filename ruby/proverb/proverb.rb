@@ -1,8 +1,9 @@
 class Proverb
   attr_reader :consequences
 
-  def initialize(*consequences)
+  def initialize(*consequences, qualifier: nil)
     @consequences = consequences
+    @modifier = qualifier
   end
 
   def to_s
@@ -11,20 +12,17 @@ class Proverb
 
   def chorus
     lines = []
-    hash_pairs(*consequences).each_pair do |k, v|
-      lines << "For want of a #{k} the #{v} was lost.\n" 
+    hash_pairs(*consequences).each_pair do |old_thing, new_thing|
+      lines << "For want of a #{old_thing} the #{new_thing} was lost.\n" 
     end
     lines.join
   end
 
   def last_line
-    if @consequences.last.is_a?(Hash)
-      h = @consequences.pop
-    end
-    if h.nil?
+    if @modifier == nil
       "And all for the want of a #{consequences[0]}."
     else
-      "And all for the want of a #{h[:qualifier]} #{consequences[0]}."
+      "And all for the want of a #{@modifier} #{consequences[0]}."
     end
   end
 
