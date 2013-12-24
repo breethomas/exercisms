@@ -1,14 +1,16 @@
 class Proverb
-  attr_reader :consequences
 
   def initialize(*consequences, qualifier: nil)
     @consequences = consequences
     @modifier = qualifier
+    compute_last_line
   end
 
   def to_s
     chorus + last_line 
   end
+
+  private
 
   def chorus
     lines = []
@@ -18,15 +20,14 @@ class Proverb
     lines.join
   end
 
-  def last_line
-    if @modifier == nil
-      "And all for the want of a #{consequences[0]}."
-    else
-      "And all for the want of a #{@modifier} #{consequences[0]}."
-    end
-  end
+  attr_reader :last_line
+  attr_reader :consequences
 
-  private
+  def compute_last_line
+    last = [consequences[0]]
+    last.unshift(@modifier) if @modifier
+    @last_line = "And all for the want of a #{last.join(' ')}."
+  end
 
   def hash_pairs(*consequences)
     clean_array = consequences.select{|e| e.is_a?(String)}
