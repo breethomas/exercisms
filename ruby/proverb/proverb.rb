@@ -25,8 +25,6 @@ class Proverb
   end
 
   def consequence_pairs
-    consequence_pairs = []
-    consequences.each_cons(2) {|pair| consequence_pairs << pair}
-    consequence_pairs
+    consequences.each_cons(2).collect {|pair| pair}
   end
 end
