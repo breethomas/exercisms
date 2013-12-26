@@ -2,7 +2,7 @@ class Proverb
 
   def initialize(*consequences, qualifier: nil)
     @consequences = consequences
-    @modifier = qualifier
+    @qualifier = qualifier
   end
 
   def to_s
@@ -10,7 +10,7 @@ class Proverb
   end
 
   private
-  attr_reader :consequences, :modifier
+  attr_reader :consequences, :qualifier
 
   def chorus
     consequences.each_cons(2).collect do |old_thing, new_thing|
@@ -19,10 +19,10 @@ class Proverb
   end
 
   def last_line
-    "And all for the want of a #{adjective.join(' ')}."
+    "And all for the want of a #{antecedant.join(' ')}."
   end
 
-  def adjective
-    [modifier, consequences.first].compact
+  def antecedant
+    [qualifier, consequences.first].compact
   end
 end
