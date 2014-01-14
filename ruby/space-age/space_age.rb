@@ -1,6 +1,4 @@
-require 'pry'
 class SpaceAge
-
   attr_reader :seconds
 
   def initialize(input_seconds)
