@@ -22,7 +22,7 @@ class SpaceAge
   end
 
   def earth_year
-    31557600.to_f
+    31_557_600.0
   end
 
   def initialize(input_seconds)
