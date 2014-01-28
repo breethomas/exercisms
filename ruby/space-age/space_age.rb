@@ -3,7 +3,7 @@ class SpaceAge
 
   def self.orbital_periods
     {
-      earth: 1,
+      earth: 1.0,
       mercury: 0.2408467,
       venus: 0.61519726,
       mars: 1.8808158,
