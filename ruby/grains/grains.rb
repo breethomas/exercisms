@@ -1,4 +1,3 @@
-require 'pry'
 class Grains
 
   def square(number)
