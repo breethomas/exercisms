@@ -8,14 +8,12 @@ class Raindrops
 
   def self.convert(drops)
     rain_song = rain_notes(drops)
-    rain_song.empty? ? "#{drops}" : rain_song.join
+    rain_song.empty? ? drops.to_s : rain_song.join
   end
 
   private
 
   def self.rain_notes(drops)
-    RAIN_NOTES.collect do |raindrop, sound|
-      sound if (drops%raindrop).zero?
-    end.compact
+    RAIN_NOTES.select { |raindrop, sound| (drops%raindrop).zero? }.values
   end
 end
