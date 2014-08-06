@@ -26,3 +26,32 @@ function isSilence(input) {
 }
 
 module.exports = Bob;
+
+
+//function Jane(age = 32) {
+//this.age = age
+//}
+//Jane.prototype.isGolden = function() {
+//  this.age >= 50
+//}
+//
+//
+//j = new Jane(50)
+//j.age == 50
+//j.isGolden() == true
+//
+//
+//class Jane
+//  attr_reader :age
+//  def initialize(age = 32)
+//    @age = 32
+//  end
+//
+//  def is_golden?
+//    @age >= 50
+//  end
+//end
+//
+//j = Jane.new(50)
+//j.age == 50
+//j.is_golden? == true
