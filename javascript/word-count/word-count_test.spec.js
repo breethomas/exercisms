@@ -30,4 +30,9 @@ describe("words()", function() {
     var expectedCounts = { "go" : 3 };
     expect(words("go Go GO")).toEqual(expectedCounts);
   });
+  
+  xit("handles unfortunate spacing issues", function() {
+    var expectedCounts = { "foo": 1, "bar": 1 };
+    expect(words(" foo  bar ")).toEqual(expectedCounts);
+  });
 });
