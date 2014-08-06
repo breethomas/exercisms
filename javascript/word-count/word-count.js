@@ -1,12 +1,15 @@
-function wordCount() {
-}
+function words(input) {
+  var myRe = /[\w']+/g
+  var clean_words = input.match(myRe)
+  var clean_string = clean_words.join(" ")
+  var words = clean_string.toLowerCase().split(" ");
+  var counts = {};
 
-wordCount.prototype = function(input) {
-  console.log(isSplit(input));
-}
+  for (var i in words) {
+    var word = words[i];
+    counts[word] = counts[word] ? counts[word] + 1 : 1;
+  }
+  return counts;
+};
 
-function isSplit(input) {
-  return input.split(" ");
-}
-
-module.exports = wordCount;
+module.exports = words
