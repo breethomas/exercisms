@@ -1,8 +1,6 @@
 function words(input) {
-  var myRe = /[\w']+/g
-  var clean_words = input.match(myRe)
-  var clean_string = clean_words.join(" ")
-  var words = clean_string.toLowerCase().split(" ");
+  var myRe = /[\w'-]+/g
+  var words = input.toLowerCase().match(myRe)
   var counts = {};
 
   for (var i in words) {
