@@ -1,38 +1,27 @@
+function alphagram(word) {
+  return word.toLowerCase().split('').sort().join('');
+}
+
 function anagram(subject) {
-  var alpha = subject.toLowerCase().split('').sort().join('') // subject is now alphagram
-  var lowSubject = subject.toLowerCase()
+  var alpha = alphagram(subject)
+  var subject = subject.toLowerCase()
+
+  function testAnagram(word, index, ar) {
+    return alphagram(subject) === alphagram(word) && subject.toLowerCase() !== word.toLowerCase()
+  }
+
+  function findAnagram(candidates) {
+    if(typeof candidates === 'string') {
+      candidates = [candidates];
+    }
+    for(var i = 1; i < arguments.length; i++) {
+      candidates.push(arguments[i]);
+    }
+    return candidates.filter(testAnagram);
+  }
 
   return  {
-    matches: function(candidates) {
-      if (arguments.length > 1) {
-        var cleanCans = [];
-        for (var i = 0; i < arguments.length; i++) {
-          if (i === 0) {
-            cleanCans.push(candidates);
-          }else {
-            cleanCans.push(arguments[i]);
-          }
-        }
-        candidates = cleanCans
-      }
-      var alphaCans = [];
-      var winners = [];
-      var results = [];
-      for (var i = 0; i < candidates.length; i++) {
-        alphaCans.push(candidates[i].toLowerCase().split('').sort().join('')); // pushing candidates transformed into alphas into alphaCans array
-      }
-      for (var i = 0; i < alphaCans.length; i++) {
-        if (alphaCans[i] === alpha) {
-          winners.push(candidates[i]);
-        }
-      }
-      for (var i = 0; i < winners.length; i++) {
-        if (winners[i].toLowerCase() !== lowSubject) {
-          results.push(winners[i]);
-        }
-      }
-      return results;
-    }
+    matches: findAnagram
   }
 }
 
