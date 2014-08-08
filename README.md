@@ -41,7 +41,3 @@ the same confidence level as more experienced developers. It is
 therefore important to be courteous and considerate. Strive to be clear
 in your explanations and give users a chance to arrive at their own
 improvements. Might the Socratic Method be a suitable approach?
-
-**My [Ruby](https://github.com/breethomas/exercisms/tree/master/ruby) solutions to "Exercisms"** 
-
-**My [JS](https://github.com/breethomas/exercisms/tree/master/javascript) solutions to "Exercisms"**
