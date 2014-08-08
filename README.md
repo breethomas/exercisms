@@ -1,4 +1,4 @@
-**About exercism.io**
+**About [exercism.io](http://exercism.io/)**
 
 The *goal* of exercism is to think deeply about simple, expressive,
 readable code.
